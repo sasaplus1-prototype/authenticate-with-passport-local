@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<%= JSON.stringify(data, null, 2); %>
+<form action="/login" method="POST">
+  <label>user<input type="text" name="user"></label>
+  <br>
+  <label>pass<input type="password" name="pass"></label>
+  <% if (!data || !data.isLoggedin) { %>
+  <br>
+  <input type="submit" value="login">
+  <% } %>
+</form>
+<% if (data.isLoggedin) { %>
+<form action="/logout" method="POST">
+  <input type="submit" value="logout">
+</form>
+<% } %>
